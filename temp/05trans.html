@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lend & Borrow</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(/Bg.png);
+  }
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .left-section {
+    width: 30%;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+  }
+  .right-section {
+    width: 65%;
+    padding: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+  }
+  .form-container {
+    margin-bottom: 20px;
+  }
+  .form-container select, .form-container input, .form-container button {
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  table, th, td {
+    border: 1px solid #ffffff;
+    padding: 10px;
+    text-align: left;
+    text-align: center;
+  }
+  th{
+    color: rgb(224, 161, 88);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="left-section">
+    <div class="form-container">
+      <select id="transactionType">
+        <option value="lend">Lend</option>
+        <option value="borrow">Borrow</option>
+      </select>
+      <input type="number" id="amount" placeholder="Enter amount">
+      <button onclick="submitTransaction()">Submit</button>
+    </div>
+  </div>
+  <div class="right-section">
+    <table id="transactionTable">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data will be populated dynamically -->
+        <!-- <td>akshat</td>
+        <td>500</td>
+        <td>lend</td>
+        <td>20/3/2021</td> -->
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TransactionPage</title>
+<link rel="stylesheet" href="/style/04transaction.css">
+
+<style>
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.left-section {
+  flex: 1;
+}
+
+.right-section {
+  flex: 1;
+}
+
+/* Header Styles */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: aliceblue;
+}
+
+.friend-email-button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.friend-email-button:hover {
+  background-color: #45a049;
+}
+
+.rate-friend-button {
+  padding: 8px 16px;
+  background-color: #4CAF50; /* Choose your preferred color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 10px; /* Adjust as needed */
+}
+
+.rate-friend-button:hover {
+  background-color: #45a049; /* Choose your preferred hover color */
+}
+
+/* Form Styles */
+.form-container {
+  background-color: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#transaction-type,
+#amount-input,
+#submit {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#submit {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#submit:hover {
+  background-color: #45a049;
+}
+
+/* Transaction History Styles */
+#transactionTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#transactionTable th,
+#transactionTable td {
+  border: 3px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#transactionTable th {
+  background-color: #f2f2f2;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .header-container {
+    margin-left: 0;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+}
+.rating-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+}
+
+.rating-section h2 {
+  margin-bottom: 20px;
+}
+
+.rating-section p {
+  margin-bottom: 10px;
+}
+
+.rating-section input[type="number"] {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.rating-section button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rating-section button:hover {
+  background-color: #45a049;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  /* margin: 20px; */
+  gap: 50px;
+  margin-bottom: 20px;
+}
+
+textarea {
+            resize: none; /* Prevent resizing */ 
+        }
+</style>
+
+</head>
+<body>
+
+<!-- Header containing friend's email button -->
+<div class="header-container">
+  <h3 id="friendEmail"></h3>
+  <a href="/htmlFiles/06friendsProfile.html" class="friend-email-button">Friends Profile</a>
+  <!-- <a href="#" class="rate-friend-button">Rate Your Friend</a> -->
+</div>
+
+<div class="container">
+  <div class="left-section">
+    <div class="form-container">
+      <h2 style="text-align: center;">Transaction Form</h2>
+      <select id="transaction-type">
+        <option value="lend">Lend</option>
+        <option value="borrow">Borrow</option>
+      </select>
+      <input type="number" id="amount-input" placeholder="Enter amount">
+      <button id="submit">Submit</button>
+    </div>
+  </div>
+  <div class="right-section">
+    <h2>Transaction History</h2>
+    <table id="transactionTable">
+      <thead>
+        <tr>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="parent">
+        <!-- Data will be populated dynamically -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="rating-section">
+    <h2>Rate Your Friend</h2>
+    <p>Provide a rating for your friend:</p>
+    <div>
+      <input type="number" id="rating-input" placeholder="Enter rating (1-5)">
+      <button id="rating-button">Submit Rating</button>
+    </div>
+  </div>
+
+  <div class="rating-section">
+    <h2>Remind Your Friend</h2>
+    <p>Provide a message to remind your Friends</p>
+    <form>
+      <textarea name="meassage" id="message" cols="50" rows="3" placeholder="Enter meassage"></textarea>
+      <!-- <input type="text" id="message" placeholder="Enter meassage"> -->
+      <br> 
+      <button id="fsubmit">Send</button>
+    </form>
+  </div>
+</div>
+
+</body>
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "GUnDNg4CqKFZj_-3w",
+      });
+   })();
+
+    function sendEmail() { 
+        let curr = localStorage.getItem('current_user');
+        let email = localStorage.getItem('friendEmail');
+        let message = document.getElementById('message').value;
+
+        // Log the values to check if they are retrieved correctly
+        // console.log("Name:", name);
+        console.log("Email:", email);
+        console.log("Message:", message);
+
+        emailjs.send("service_6qjvp1i","template_r0ezocs", {
+            name: curr,
+            email: email,
+            message: message
+        }).then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            alert("Message is sent!!");
+            location.reload();
+        }, function(error) {
+            console.log('FAILED...', error);
+            alert("Failed to send message. Please try again later.");
+        });
+    }
+
+    document.getElementById('fsubmit').addEventListener('click', function(event) {
+        event.preventDefault();
+        sendEmail();
+    });
+</script>
+<script type="module" src="/script/04transaction.js"></script>
+</html>

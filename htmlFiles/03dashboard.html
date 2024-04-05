@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,  
+                   initial-scale=1.0"
+    />
+    <link rel="stylesheet" href="/style/03dashboard.css" />
+    <link rel="stylesheet" href="/style/03responsive.css" />
+    <title>Pocket Pulse Dashboard</title>
+    <style>
+      .animation-container {
+        position: relative;
+        height: 100vh;
+        font-size: smaller;
+        display: none;
+      }
+
+      .currency-note {
+        position: absolute;
+        top: 0;
+        left: -100px;
+        width: 120px;
+        height: 75px;
+        background: linear-gradient(
+          to right,
+          #85bb65,
+          #85bb65 30%,
+          #fff 30%,
+          #fff 70%,
+          #85bb65 70%,
+          #85bb65
+        );
+        border: 2px solid #1a472a;
+        box-shadow: 0 0 5px rgba(194, 150, 62, 0.512);
+        animation: fly 2s ease-in-out infinite,
+          hoverOverPocket 1s 2s linear infinite, disappear 1s 5s infinite;
+      }
+
+      .currency-note::before {
+        content: "$";
+        font-size: 24px; /* Adjust the font size as needed */
+        color: #1a472a; /* Adjust the color of the dollar symbol */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @keyframes fly {
+        0% {
+          left: calc((50vw - 60px));
+          top: 0;
+          transform: rotate(90deg);
+        }
+        50% {
+          left: calc(50vw - 60px);
+          top: 20vh;
+          transform: rotate(90deg);
+        }
+        100% {
+          left: calc(50vw - 60px);
+          top: 50vh;
+          transform: rotate(90deg);
+        }
+      }
+
+      @keyframes hoverOverPocket {
+        0% {
+          transform: translateX(0) rotate(90deg);
+        }
+        100% {
+          transform: translateX(calc(50vw -40px)) translateY(-50%) rotate(90deg);
+        }
+      }
+
+      /* @keyframes disappear {
+            0% {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0.5) rotate(360deg);
+                opacity: 0;
+            }
+        } */
+
+      .pocket {
+        position: absolute;
+        width: 120px; /* Adjust the width of the pocket */
+        height: 150px; /* Adjust the height of the pocket */
+        background-color: #197bd0; /* Change pocket color to black */
+        background-image: url(""); /* Add the path to your image */
+        left: calc(50vw - 60px); /* Center the pocket horizontally */
+        top: 50vh;
+        overflow: hidden;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% 80%,
+          50% 100%,
+          0 80%
+        ); /* Clip path for a square with a triangle at the bottom */
+        animation: disappear 1s 5s infinite; /* Apply disappear animation to the pocket */
+        border-radius: 2px;
+      }
+
+      .visible-part {
+        position: absolute;
+        width: 100%; /* Change the width to 100% to cover the opening of the pocket */
+        height: 20%;
+        background-color: rgb(191, 211, 227); /* Match the pocket color */
+        bottom: 0;
+        border-radius: 2px;
+      }
+
+      .logo1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #e9e9e9; /* Color of the logo text */
+        font-size: 12px; /* Adjust the font size as needed */
+        /* font-family: ; Choose the font family */
+        text-align: center;
+        z-index: 2; /* Ensure the logo is above the currency note */
+      }
+    </style>
+  </head>
+
+  <body style="background-image: url(/Bg.png)">
+    <div id="dash">
+      <!-- for header part -->
+      <header>
+        <div class="logosec">
+          <div class="logo">Pocket pulse</div>
+
+          <img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+            class="icn menuicn"
+            id="menuicn"
+            alt="menu-icon"
+          />
+        </div>
+
+
+        <!-- <div class="searchbar">
+        <input type="text" placeholder="Search" />
+        <div class="searchbtn">
+          <img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+            class="icn srchicn"
+            alt="search-icon"
+          />
+        </div>
+      </div> -->
+        <a href="05profile.html">
+          <div class="message">
+            <div class="circle"></div>
+            <div id="profile" class="dp">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+                class="dpicn"
+                alt="dp"
+              />
+            </div>
+          </div>
+        </a>
+      </header>
+
+      <div class="main-container">
+        <div class="navcontainer">
+          <nav class="nav">
+            <div class="nav-upper-options">
+              <div class="nav-option option1">
+                <img
+                  src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                  class="nav-img"
+                  alt="dashboard"
+                />
+                <h3>Dashboard</h3>
+              </div>
+
+              <!-- <div class="option2 nav-option">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+                class="nav-img"
+                alt="articles"
+              />
+              <h3>Articles</h3>
+            </div> -->
+
+              <!-- <div class="nav-option option3">
+                <img
+                  src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
+                  class="nav-img"
+                  alt="report"
+                />
+                <h3>Report</h3>
+              </div> -->
+
+              <!-- <div class="nav-option option4">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
+                class="nav-img"
+                alt="institution"
+              />
+              <h3>Institution</h3>
+            </div> -->
+
+              <div id="gst" class="nav-option option5">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
+                class="nav-img"
+                alt="blog"
+              />
+              
+              <h3 >GST</h3>
+            </div>
+
+              <!-- <div class="nav-option option6">
+              <img
+                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+                class="nav-img"
+                alt="settings"
+              />
+              <h3>Settings</h3>
+            </div> -->
+
+              <div id="signout" class="nav-option logout">
+                <img
+                  src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                  class="nav-img"
+                  alt="logout"
+                  
+                />
+                <h3>Logout</h3>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <div class="main">
+          <div class="box-container">
+            <div class="box box1">
+              <div class="text">
+                <h2 class="topic-heading" style="text-align: center" id="lended">00</h2>
+                <h2 class="topic">Total lended</h2>
+              </div>
+
+              <!-- <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
+              alt="Views"
+            /> -->
+            </div>
+
+            <div class="box box2">
+              <div class="text">
+                <h2 class="topic-heading" style="text-align: center" id="borrowed">00</h2>
+                <h2 class="topic" style="text-align: center">Total borrowed</h2>
+              </div>
+
+              <!-- <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png"
+              alt="likes"
+            /> -->
+            </div>
+
+            <div id="reminder"  class="box box3">
+              <div class="text">
+                <h2 class="topic-heading" style="text-align: center">
+                  Reminder
+                </h2>
+                <h2 class="topic" style="text-align: center">Message</h2>
+              </div>
+
+              <!-- <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
+              alt="comments"
+            /> -->
+            </div>
+
+            <div class="box box4">
+              <div class="text">
+                <h2 class="topic-heading" style="text-align: center" id="amt">00</h2>
+                <h2 class="topic" style="text-align: center" id="pay">Amount to pay</h2>
+              </div>
+
+              <!-- <img
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png"
+              alt="published"
+            /> -->
+            </div>
+          </div>
+
+          <div class="report-container">
+            <div class="report-header">
+              <h1 class="recent-Articles">Friends list</h1>
+              <div class="searchbar">
+                <input id="email" type="text" placeholder="Search" />
+                <div class="searchbtn">
+                  <img
+                    id="submit"
+                    src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                    class="icn srchicn"
+                    alt="search-icon"
+                  />
+                </div>
+              </div>
+              <!-- <button class="view">View All</button> -->
+            </div>
+
+            <div class="report-body">
+              <div class="report-topic-heading">
+                <h3 class="t-op">Name</h3>
+                <h3 class="t-op" style="margin-left: 8%">Rating</h3>
+                <h3 class="t-op">Transaction</h3>
+              </div>
+              <div id="parent" class="items">
+                <!-- <div class="item1"> 
+                    <h3 class="t-op-nextlvl">Article 73</h3> 
+                    <h3 class="t-op-nextlvl">2.9k</h3> 
+                    <button class="t-op-nextlvl label-tag ">Transaction</button> 
+                </div> 
+
+                <div class="item1"> 
+                    <h3 class="t-op-nextlvl">Article 72</h3> 
+                    <h3 class="t-op-nextlvl">1.5k</h3> 
+                    <button class="t-op-nextlvl label-tag">Transaction</button>
+                </div>  -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- animation html -->
+    <div class="animation-container">
+      <div class="currency-note"></div>
+      <div class="pocket">
+        <div class="visible-part"></div>
+        <div class="logo1">loading</div>
+      </div>
+    </div>
+    <script>
+      let menuicn = document.querySelector(".menuicn");
+      let nav = document.querySelector(".navcontainer");
+      
+      menuicn.addEventListener("click", () => {
+        nav.classList.toggle("navclose");
+      });
+
+      let btn = document.getElementById('reminder');
+      btn.addEventListener('click', () => {
+        window.location.href = '08email.html';
+      });
+    </script>
+    <script type="module" src="/script/03dashboard.js"></script>
+</body>
+</html>

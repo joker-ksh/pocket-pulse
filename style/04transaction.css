@@ -1,0 +1,122 @@
+@import url(https://fonts.googleapis.com/css?family=Lexend+Deca:regular);
+body {
+    font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+    margin: 0;
+    padding: 0;
+    background-image: url('/Bg.png'); /* Adjust the path to your background image */
+    background-size: cover; /* Ensure background image covers entire viewport */
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-position: center; /* Center the background image */
+    height: 100vh; /* Ensure full height coverage */
+    animation: fadeIn 1s ease-out; /* Fade-in animation for body */
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .left-section {
+    width: 45%; /* Adjust width to accommodate form */
+    padding: 20px;
+    border-right: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    animation: slideInLeft 1s ease-out; /* Slide-in animation for left section */
+    max-height: 250px;
+  }
+
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .right-section {
+    width: 50%; /* Adjust width to accommodate table */
+    padding: 20px;
+    color: #f4f2f2;
+    font-weight: bold;
+    text-align: center;
+    animation: slideInRight 1s ease-out; /* Slide-in animation for right section */
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .form-container {
+    margin-bottom: 20px;
+  }
+
+  .form-container select, .form-container input, .form-container button {
+    margin-bottom: 15px; /* Reduced spacing between form elements */
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Smooth transition for form elements */
+  }
+
+  .form-container select:hover, .form-container input:hover, .form-container button:hover {
+    background-color: #f0f0f0; /* Light background on hover */
+  }
+
+  .form-container select:focus, .form-container input:focus, .form-container button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add focus shadow */
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    animation: fadeInTable 1s ease-out; /* Fade-in animation for table */
+  }
+
+  @keyframes fadeInTable {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  table, th, td {
+    border: 1px solid #080808;
+    padding: 10px;
+    text-align: center;
+    color: #080808;
+  }
+
+  th {
+    color: rgb(224, 161, 88);
+  }
+
+  tr:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Light background on hover */
+  }

@@ -1,0 +1,325 @@
+*{
+    margin:0;
+    padding:0;
+    font-family:"popins","sens-serif";
+}
+body{
+    background:black;
+    background-image: url("Bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow:scroll;
+}
+.header {
+    position:fixed;
+    width:80%;
+    top:0;
+    left:0;
+    padding:10px 10%;
+    background:transparent;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+.logo{
+    padding-top: 15px;
+    font-size:25px;
+    color:white;
+    text-decoration:none;
+    font-weight: 600;
+    border-radius: 10px; 
+    overflow: hidden;
+
+}
+.navbar a{
+    font-size: 20px;
+    color:white;
+    text-decoration:none;
+    font-weight:500px;
+    margin-left:33px;
+    letter-spacing:1px;
+    transition:.3s;
+}
+.netflix-btn{
+    background:#FF0000;
+    padding:6px 14px 6px 14px;
+    border-radius:30px;
+    transition:.3s ease-in-out; 
+}
+.navbar .netflix-btn:hover {
+    background:white;
+    -webkit-text-fill-color:red;
+
+}
+.navbar a:hover,.navbar a.active{
+    background:linear-gradient(to right,rgba(0,119,225),#0ef);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+}
+.hero-content{
+    max-width: 560px;
+    color:white;
+    margin-left: 240px;
+    margin-top: 500px;
+    
+}
+.hero{
+    height:100px;
+    display:flex;
+    padding:0,0%
+}
+.hero-content h1{
+    font-size:47px;
+    font-weight:700;
+    line-height:1.2;
+}
+.hero-content h3{
+    font-size: 32px;
+    font-weight:700;
+    margin-top:10px;
+    background:-webkit-linear-gradient(0,rgba(0,119,255)0%,#0ef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero-content{
+    font-size:15px;
+    line-height:22px;
+    margin:300px 0px 0px 150px;
+    text-align:justify;
+    font-weight:400;
+}
+.hero-content p{
+    font-size:15px;
+    line-height:22px;
+    margin:20px 0px 40px;
+    text-align: justify;
+    font-weight:400;
+}
+.btn {
+    position:relative;
+    display:flex;
+    justify-content: space-between;
+    width:345px;
+    height:50px;
+    margin-top:80px;
+}
+.btn a{
+    position: relative;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:150px;
+    height:100%;
+    background:-webkit-linear-gradient(0,rgba(0,119,255)0%,#0ef);
+    color:black;
+    border-radius: 30px;
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 1px;
+    z-index:1;
+    overflow:hidden;
+
+}
+.btn a:hover{
+    color: rgba(0,119,255);
+    border:2px solid rgba(0,119,255);
+} 
+.btn a:nth-child(2){
+    background:transparent;
+    color:rgba(0,119,225);
+    border:2px solid  rgba(0,119,255);
+    border-radius:30px;
+}
+.btn a:nth-child(2):hover{
+-webkit-text-fill-color: black;
+}
+.btn a:nth-child(2)::before{
+    background:-webkit-linear-gradient(0,rgba(0,119,255)0%,#0ef 100%);
+    
+}
+.btn a::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:0;
+    background:black;
+    border-radius:8px;
+    z-index:-1;
+    transition:.5s;
+}
+.btn a:hover::before{
+    height:100%
+}
+.social{
+    display:flex;
+    justify-content:space-between;
+    position:relative;
+    bottom:45px;
+    width:170px;
+    background: transparent;
+    margin-top: 80px;
+
+}
+.social a{
+    position:relative;
+    display:inline-flex;
+    justify-content: center;
+    align-items:center;
+    width:40px;
+    height:40px;
+    background: transparent;
+    border: 2px solid rgba(0,119,225);
+    border-radius: 50%;
+    font-size: 20px;
+    color: #0ef4ff;
+    text-decoration:none;
+    z-index:1;
+    overflow: hidden;
+}
+.social a:hover{
+    color:black;
+}
+.social a::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:0;
+    background: -webkit-linear-gradient(0,rgba(0,119,255)0%,#0ef 100%);
+    z-index: -1;
+    transition: .5s;
+}
+.social a:hover::before{
+    height:100%
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+
+.box{
+    margin-top: 50px;
+    margin-left: 800px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.flex-r ,.flex-c {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.flex-c{
+    flex-direction: column;
+}
+.flex-r{
+    flex-direction: row;
+}
+
+.container{
+    width: 50%;
+    min-height: 10vh;
+    padding: 15px 10px;  
+}
+
+.login-text{
+    background-color: rgb(227,242,253);
+    max-width: 400px;
+    min-height: 500px;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.logo1{
+    margin-bottom: 20px;
+}
+.logo1 span , .logo1 span i{
+    font-size: 25px;
+    color:#0d8aa7 ;
+}
+
+.login-text h1{
+    font-size: 25px;
+}
+.login-text p{
+    font-size: 15px;
+    color: #000000B2;
+}
+
+form{
+    align-items: flex-start !important;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.input-box{
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.label{
+    font-size: 15px;
+    color: black;
+    margin-bottom: 3px;
+}
+
+.input{
+    background-color: #F6F6F6;
+    padding: 0px 5px;
+    border: 2px solid rgba(216, 216, 216, 1);
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: flex-start;
+}
+
+input{
+    border: none;
+    outline: none;
+    padding: 10px 5px;
+    background-color: #F6F6F6;
+    flex: 1;
+}
+.input i{
+    color:rgba(0, 0, 0, 0.4);
+}
+
+.check span{
+    color:#000000B2;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.btn1{
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px 15px;
+    background: linear-gradient(122.33deg, #68bed1 30.62%, #1E94E9 100%);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: all 0.3s linear;
+}
+
+.btn1:hover{
+    transform: translateY(-2px);
+}
+.extra-line{
+    font-size: 15px;
+    font-weight: 600;
+}
+.extra-line a{
+    color: #0095B6;
+}
+.txt{
+    font-family: 'SerifMonospace', monospace;;
+}
