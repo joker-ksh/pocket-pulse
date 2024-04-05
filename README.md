@@ -24,6 +24,6 @@ Pocket Pulse is a super easy web app that helps you to keep track of money matte
 - Teja sai -Role:Backend
 
 ## Netlify hosted webURL
-"[https://amazing-torrone-063cca.netlify.app/](https://chat.openai.com/c/37c6d902-ea3c-4172-b4de-7a24310a7747)"
+"https://amazing-torrone-063cca.netlify.app/"
 
 
