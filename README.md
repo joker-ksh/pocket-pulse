@@ -17,7 +17,7 @@ Pocket Pulse is a super easy web app that helps you to keep track of money matte
 
 ## Team Members
 - Aman - Role: Frontend and bacakend(aman22bcy47@iiitkottayam.ac.in)
-- Yashwant - Role: Frontend(kuchampudi22bcy25@iiitkottayam.ac.in)
+- Yashwanth - Role: Frontend(kuchampudi22bcy25@iiitkottayam.ac.in)
 - Rahul - Role: Frontend(jyothi22bcy36@iiitkottayam.ac.in)
 - Anusha - Role: Frontend
 - Sai Prithvi - Role:Backend
