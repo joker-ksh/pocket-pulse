@@ -9,7 +9,6 @@
                    initial-scale=1.0"
     />
     <link rel="stylesheet" href="/style/03dashboard.css" />
-    <link rel="stylesheet" href="/style/03responsive.css" />
     <title>Pocket Pulse Dashboard</title>
     <style>
       .animation-container {
@@ -77,22 +76,11 @@
         }
       }
 
-      /* @keyframes disappear {
-            0% {
-                transform: scale(1) rotate(0);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(0.5) rotate(360deg);
-                opacity: 0;
-            }
-        } */
-
       .pocket {
         position: absolute;
         width: 120px; /* Adjust the width of the pocket */
         height: 150px; /* Adjust the height of the pocket */
-        background-color: #197bd0; /* Change pocket color to black */
+        background-color: #64ffda; /* Change pocket color to black */
         background-image: url(""); /* Add the path to your image */
         left: calc(50vw - 60px); /* Center the pocket horizontally */
         top: 50vh;
@@ -122,7 +110,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: #e9e9e9; /* Color of the logo text */
+        color: #000; /* Color of the logo text */
         font-size: 12px; /* Adjust the font size as needed */
         /* font-family: ; Choose the font family */
         text-align: center;
@@ -131,7 +119,7 @@
     </style>
   </head>
 
-  <body style="background-image: url(/Bg.png)">
+  <body>
     <div id="dash">
       <!-- for header part -->
       <header>
@@ -145,18 +133,6 @@
             alt="menu-icon"
           />
         </div>
-
-
-        <!-- <div class="searchbar">
-        <input type="text" placeholder="Search" />
-        <div class="searchbtn">
-          <img
-            src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-            class="icn srchicn"
-            alt="search-icon"
-          />
-        </div>
-      </div> -->
         <a href="05profile.html">
           <div class="message">
             <div class="circle"></div>
@@ -184,58 +160,20 @@
                 <h3>Dashboard</h3>
               </div>
 
-              <!-- <div class="option2 nav-option">
-              <img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
-                class="nav-img"
-                alt="articles"
-              />
-              <h3>Articles</h3>
-            </div> -->
-
-              <!-- <div class="nav-option option3">
-                <img
-                  src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
-                  class="nav-img"
-                  alt="report"
-                />
-                <h3>Report</h3>
-              </div> -->
-
-              <!-- <div class="nav-option option4">
-              <img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
-                class="nav-img"
-                alt="institution"
-              />
-              <h3>Institution</h3>
-            </div> -->
-
               <div id="gst" class="nav-option option5">
-              <img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
-                class="nav-img"
-                alt="blog"
-              />
-              
-              <h3 >GST</h3>
-            </div>
+                <img
+                  src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
+                  class="nav-img"
+                  alt="blog"
+                />
 
-              <!-- <div class="nav-option option6">
-              <img
-                src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
-                class="nav-img"
-                alt="settings"
-              />
-              <h3>Settings</h3>
-            </div> -->
-
+                <h3>GST</h3>
+              </div>
               <div id="signout" class="nav-option logout">
                 <img
                   src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
                   class="nav-img"
                   alt="logout"
-                  
                 />
                 <h3>Logout</h3>
               </div>
@@ -246,52 +184,48 @@
           <div class="box-container">
             <div class="box box1">
               <div class="text">
-                <h2 class="topic-heading" style="text-align: center" id="lended">00</h2>
+                <h2
+                  class="topic-heading"
+                  style="text-align: center"
+                  id="lended"
+                >
+                  00
+                </h2>
                 <h2 class="topic">Total lended</h2>
               </div>
-
-              <!-- <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
-              alt="Views"
-            /> -->
             </div>
 
             <div class="box box2">
               <div class="text">
-                <h2 class="topic-heading" style="text-align: center" id="borrowed">00</h2>
+                <h2
+                  class="topic-heading"
+                  style="text-align: center"
+                  id="borrowed"
+                >
+                  00
+                </h2>
                 <h2 class="topic" style="text-align: center">Total borrowed</h2>
               </div>
-
-              <!-- <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png"
-              alt="likes"
-            /> -->
             </div>
 
-            <div id="reminder"  class="box box3">
+            <div id="reminder" class="box box3">
               <div class="text">
                 <h2 class="topic-heading" style="text-align: center">
                   Reminder
                 </h2>
                 <h2 class="topic" style="text-align: center">Message</h2>
               </div>
-
-              <!-- <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
-              alt="comments"
-            /> -->
             </div>
 
             <div class="box box4">
               <div class="text">
-                <h2 class="topic-heading" style="text-align: center" id="amt">00</h2>
-                <h2 class="topic" style="text-align: center" id="pay">Amount to pay</h2>
+                <h2 class="topic-heading" style="text-align: center" id="amt">
+                  00
+                </h2>
+                <h2 class="topic" style="text-align: center" id="pay">
+                  Amount to pay
+                </h2>
               </div>
-
-              <!-- <img
-              src="https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png"
-              alt="published"
-            /> -->
             </div>
           </div>
 
@@ -309,7 +243,6 @@
                   />
                 </div>
               </div>
-              <!-- <button class="view">View All</button> -->
             </div>
 
             <div class="report-body">
@@ -318,19 +251,7 @@
                 <h3 class="t-op" style="margin-left: 8%">Rating</h3>
                 <h3 class="t-op">Transaction</h3>
               </div>
-              <div id="parent" class="items">
-                <!-- <div class="item1"> 
-                    <h3 class="t-op-nextlvl">Article 73</h3> 
-                    <h3 class="t-op-nextlvl">2.9k</h3> 
-                    <button class="t-op-nextlvl label-tag ">Transaction</button> 
-                </div> 
-
-                <div class="item1"> 
-                    <h3 class="t-op-nextlvl">Article 72</h3> 
-                    <h3 class="t-op-nextlvl">1.5k</h3> 
-                    <button class="t-op-nextlvl label-tag">Transaction</button>
-                </div>  -->
-              </div>
+              <div id="parent" class="items"></div>
             </div>
           </div>
         </div>
@@ -347,16 +268,16 @@
     <script>
       let menuicn = document.querySelector(".menuicn");
       let nav = document.querySelector(".navcontainer");
-      
+
       menuicn.addEventListener("click", () => {
         nav.classList.toggle("navclose");
       });
 
-      let btn = document.getElementById('reminder');
-      btn.addEventListener('click', () => {
-        window.location.href = '08email.html';
+      let btn = document.getElementById("reminder");
+      btn.addEventListener("click", () => {
+        window.location.href = "08email.html";
       });
     </script>
     <script type="module" src="/script/03dashboard.js"></script>
-</body>
+  </body>
 </html>

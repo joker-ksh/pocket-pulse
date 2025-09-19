@@ -15,13 +15,13 @@ html {
 }
 
 :root {
-    --primary-bg: #171717;
-    --secondary-bg: #262626;
-    --accent-bg: #4f46e5;
+    --primary-bg: #233554;
+    --secondary-bg: #64ffda;
+    --accent-bg: #64ffda;
 
     --primary-color: #fff;
     --secondary-color: rgba(255,255,255, 70%);
-    --accent-color: #818cf8;
+    --accent-color: #64ffda;
 
     --border-color: rgba(255,255,255, 30%);
     
@@ -31,7 +31,7 @@ html {
 }
 
 body {
-    background: black;
+    background: #0a192f;
     background-size: cover;
 }
 

@@ -13,20 +13,11 @@
     
     <link rel="stylesheet" href="/style/05profile.css" />
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
-      * {
-        font-weight: 900;
-        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-      }
-      body {
-        margin: 0;
-        overflow: hidden;
-        background-color: #202025; /* White background */
-      }
-
       .animation-container {
         position: relative;
         height: 100vh;
+        font-size: smaller;
+        display: none;
       }
 
       .currency-note {
@@ -91,7 +82,7 @@
         position: absolute;
         width: 120px; /* Adjust the width of the pocket */
         height: 150px; /* Adjust the height of the pocket */
-        background-color: #197bd0; /* Change pocket color to black */
+        background-color: #64ffda; /* Change pocket color to black */
         background-image: url(""); /* Add the path to your image */
         left: calc(50vw - 60px); /* Center the pocket horizontally */
         top: 50vh;
@@ -105,7 +96,6 @@
         ); /* Clip path for a square with a triangle at the bottom */
         animation: disappear 1s 5s infinite; /* Apply disappear animation to the pocket */
         border-radius: 2px;
-        text-align: center;
       }
 
       .visible-part {
@@ -117,15 +107,14 @@
         border-radius: 2px;
       }
 
-      .logo {
+      .logo1 {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        color: #e9e9e9; /* Color of the logo text */
+        color: #000; /* Color of the logo text */
         font-size: 12px; /* Adjust the font size as needed */
-        font-family:"Lexend Deca", -apple-system, BlinkMacSystemFont, "Segoe UI",
-        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important; /* Choose the font family */
+        /* font-family: ; Choose the font family */
         text-align: center;
         z-index: 2; /* Ensure the logo is above the currency note */
       }

@@ -1,199 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Rahul Enrique">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Rahul Enrique" />
     <title>Responsive Profile Page</title>
-    <script src="https://kit.fontawesome.com/b8b432d7d3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/style/05profile.css">
+    <script
+      src="https://kit.fontawesome.com/b8b432d7d3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/style/05profile.css" />
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
-        * {
-          font-weight: 900;
-          font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-        }
-        body {
-          margin: 0;
-          overflow: hidden;
-          background-color: #202025; /* White background */
-        }
-  
-        .animation-container {
-          position: relative;
-          height: 100vh;
-        }
-  
-        .currency-note {
-          position: absolute;
+      .animation-container {
+        position: relative;
+        height: 100vh;
+        font-size: smaller;
+        display: none;
+      }
+
+      .currency-note {
+        position: absolute;
+        top: 0;
+        left: -100px;
+        width: 120px;
+        height: 75px;
+        background: linear-gradient(
+          to right,
+          #85bb65,
+          #85bb65 30%,
+          #fff 30%,
+          #fff 70%,
+          #85bb65 70%,
+          #85bb65
+        );
+        border: 2px solid #1a472a;
+        box-shadow: 0 0 5px rgba(194, 150, 62, 0.512);
+        animation: fly 2s ease-in-out infinite,
+          hoverOverPocket 1s 2s linear infinite, disappear 1s 5s infinite;
+      }
+
+      .currency-note::before {
+        content: "$";
+        font-size: 24px; /* Adjust the font size as needed */
+        color: #1a472a; /* Adjust the color of the dollar symbol */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @keyframes fly {
+        0% {
+          left: calc((50vw - 60px));
           top: 0;
-          left: -100px;
-          width: 120px;
-          height: 75px;
-          background: linear-gradient(
-            to right,
-            #85bb65,
-            #85bb65 30%,
-            #fff 30%,
-            #fff 70%,
-            #85bb65 70%,
-            #85bb65
-          );
-          border: 2px solid #1a472a;
-          box-shadow: 0 0 5px rgba(194, 150, 62, 0.512);
-          animation: fly 2s ease-in-out infinite,
-            hoverOverPocket 1s 2s linear infinite, disappear 1s 5s infinite;
+          transform: rotate(90deg);
         }
-  
-        .currency-note::before {
-          content: "$";
-          font-size: 24px; /* Adjust the font size as needed */
-          color: #1a472a; /* Adjust the color of the dollar symbol */
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+        50% {
+          left: calc(50vw - 60px);
+          top: 20vh;
+          transform: rotate(90deg);
         }
-  
-        @keyframes fly {
-          0% {
-            left: calc((50vw - 60px));
-            top: 0;
-            transform: rotate(90deg);
-          }
-          50% {
-            left: calc(50vw - 60px);
-            top: 20vh;
-            transform: rotate(90deg);
-          }
-          100% {
-            left: calc(50vw - 60px);
-            top: 50vh;
-            transform: rotate(90deg);
-          }
-        }
-  
-        @keyframes hoverOverPocket {
-          0% {
-            transform: translateX(0) rotate(90deg);
-          }
-          100% {
-            transform: translateX(calc(50vw -40px)) translateY(-50%) rotate(90deg);
-          }
-        }
-  
-        /* @keyframes disappear {
-              0% {
-                  transform: scale(1) rotate(0);
-                  opacity: 1;
-              }
-              100% {
-                  transform: scale(0.5) rotate(360deg);
-                  opacity: 0;
-              }
-          } */
-  
-        .pocket {
-          position: absolute;
-          width: 120px; /* Adjust the width of the pocket */
-          height: 150px; /* Adjust the height of the pocket */
-          background-color: #197bd0; /* Change pocket color to black */
-          background-image: url(""); /* Add the path to your image */
-          left: calc(50vw - 60px); /* Center the pocket horizontally */
+        100% {
+          left: calc(50vw - 60px);
           top: 50vh;
-          overflow: hidden;
-          clip-path: polygon(
-            0 0,
-            100% 0,
-            100% 80%,
-            50% 100%,
-            0 80%
-          ); /* Clip path for a square with a triangle at the bottom */
-          animation: disappear 1s 5s infinite; /* Apply disappear animation to the pocket */
-          border-radius: 2px;
-          text-align: center;
+          transform: rotate(90deg);
         }
-  
-        .visible-part {
-          position: absolute;
-          width: 100%; /* Change the width to 100% to cover the opening of the pocket */
-          height: 20%;
-          background-color: rgb(191, 211, 227); /* Match the pocket color */
-          bottom: 0;
-          border-radius: 2px;
+      }
+
+      @keyframes hoverOverPocket {
+        0% {
+          transform: translateX(0) rotate(90deg);
         }
-  
-        .logo {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          color: #e9e9e9; /* Color of the logo text */
-          font-size: 12px; /* Adjust the font size as needed */
-          font-family: ; /* Choose the font family */
-          text-align: center;
-          z-index: 2; /* Ensure the logo is above the currency note */
+        100% {
+          transform: translateX(calc(50vw -40px)) translateY(-50%) rotate(90deg);
         }
-      </style>
-</head>
-<body>
-<div id="dash">
-    <div class="container">
+      }
+
+      .pocket {
+        position: absolute;
+        width: 120px; /* Adjust the width of the pocket */
+        height: 150px; /* Adjust the height of the pocket */
+        background-color: #64ffda; /* Change pocket color to black */
+        background-image: url(""); /* Add the path to your image */
+        left: calc(50vw - 60px); /* Center the pocket horizontally */
+        top: 50vh;
+        overflow: hidden;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% 80%,
+          50% 100%,
+          0 80%
+        ); /* Clip path for a square with a triangle at the bottom */
+        animation: disappear 1s 5s infinite; /* Apply disappear animation to the pocket */
+        border-radius: 2px;
+      }
+
+      .visible-part {
+        position: absolute;
+        width: 100%; /* Change the width to 100% to cover the opening of the pocket */
+        height: 20%;
+        background-color: rgb(191, 211, 227); /* Match the pocket color */
+        bottom: 0;
+        border-radius: 2px;
+      }
+
+      .logo1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #000; /* Color of the logo text */
+        font-size: 12px; /* Adjust the font size as needed */
+        /* font-family: ; Choose the font family */
+        text-align: center;
+        z-index: 2; /* Ensure the logo is above the currency note */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dash">
+      <div class="container">
         <div class="profile-card">
-            <div class="profile-header">
-                <div class="main-profile">
-                    <div class="profile-image"></div>
-                    <div class="profile-names">
-                        <h1 class="username" id="name">Rahul Enrique</h1>
-                        <small class="page-title">Introvert</small>
-                    </div>
-                </div>
+          <div class="profile-header">
+            <div class="main-profile">
+              <div class="profile-image"></div>
+              <div class="profile-names">
+                <h1 class="username" id="name">Rahul Enrique</h1>
+                <small class="page-title">Introvert</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-body">
+            <div class="profile-actions">
+              <br />
+              <br />
+              <br />
             </div>
 
-            <div class="profile-body">
-                <div class="profile-actions">
-                    <br>
-                    <br>
-                    <br>
+            <div class="account-info">
+              <div class="data">
+                <div class="important-data">
+                  <section class="data-item">
+                    <h3 class="value" id="frndcount">104</h3>
+                    <h2 class="title">Friends</h2>
+                  </section>
+                  <section class="data-item">
+                    <h3 class="value" id="rating">5*</h3>
+                    <h2 class="title">Rating</h2>
+                  </section>
                 </div>
-
-                <div class="account-info">
-                    <div class="data">
-                        <div class="important-data">
-                            <section class="data-item">
-                                <h3 class="value" id="frndcount">104</h3>
-                                <h2 class="title">Friends</h2>
-                            </section>
-                            <section class="data-item">
-                                <h3 class="value" id="rating">5*</h3>
-                                <h2 class="title">Rating</h2>
-                            </section>
-                        </div>
-                        
-                    </div>
-
-                    <!-- <div class="social-media">
-                        <span>Follow me in:</span>
-                        <a href="" class="media-link" ><i class="fab fa-facebook-square"></i></a>
-                        <a  class="media-link"><i class="fab fa-twitter-square"></i></a>
-                        <a  class="media-link"><i class="fab fa-linkedin"></i></a>
-                        <a  class="media-link"><i class="fab fa-instagram-square"></i></a>
-                        <a class="media-link"><i class="fab fa-github-square"></i></a>
-                    </div> -->
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-  </div>
-</div>
-<!-- animation html -->
-<div class="animation-container">
-    <div class="currency-note"></div>
-    <div class="pocket">
-      <div class="visible-part"></div>
-      <div class="logo1">loading</div>
+    <!-- animation html -->
+    <div class="animation-container">
+      <div class="currency-note"></div>
+      <div class="pocket">
+        <div class="visible-part"></div>
+        <div class="logo1">loading</div>
+      </div>
     </div>
-</div>
-</body>
-<script type="module" src="/script/05profile.js"></script>
+  </body>
+  <script type="module" src="/script/05profile.js"></script>
 </html>

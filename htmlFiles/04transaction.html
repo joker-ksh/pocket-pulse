@@ -7,237 +7,342 @@
 <link rel="stylesheet" href="/style/04transaction.css">
 
 <style>
-/* General Styles */
-body {
-  font-family: Arial, sans-serif;
+/* Import Lexend Deca font */
+@import url([https://fonts.googleapis.com/css?family=Lexend+Deca:regular]);
+
+/* 
+  SECTION 1: DESIGN TOKENS AND GLOBAL STYLES
+  - Establishes a single source of truth for spacing, colors, and other design properties.
+  - Implements an 8-point grid system for consistent spacing.
+  - Applies a modern CSS reset for cross-browser consistency.
+*/
+:root {
+  /* Color Palette */
+  --color-background-deep: #0a192f;
+  --color-background-medium: #112240;
+  --color-border: #233554;
+  --color-text-primary: #ccd6f6;
+  --color-text-secondary: #8892b0;
+  --color-accent: #64ffda;
+  --color-accent-darker: #52d1b1;
+  --color-accent-text: #0a192f;
+
+  /* Spacing System (8-Point Grid) */
+  --spacing-xs: 0.25rem;  /* 4px */
+  --spacing-s: 0.5rem;   /* 8px */
+  --spacing-m: 1rem;     /* 16px */
+  --spacing-l: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;    /* 32px */
+  --spacing-xxl: 2.5rem; /* 40px */
+
+  /* Border Radius */
+  --border-radius-medium: 8px;
+  --border-radius-small: 6px;
+
+  /* Transitions */
+  --transition-fast: all 0.25s ease-in-out;
+}
+
+/* Modern CSS Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif!important;
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px;
+body {
+  background: linear-gradient(to right, var(--color-background-deep), var(--color-background-medium));
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  animation: fadeIn 1s ease-out;
 }
 
-.left-section {
-  flex: 1;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.right-section {
-  flex: 1;
-}
-
-/* Header Styles */
+/* 
+  SECTION 2: LAYOUT AND STRUCTURE
+  - Uses Flexbox for robust and flexible page structure.
+  - Applies consistent spacing tokens for gaps and padding between major sections.
+*/
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  color: aliceblue;
+  padding: var(--spacing-l) var(--spacing-xxl);
+  background: var(--color-background-deep);
+  border-bottom: 1px solid var(--color-border);
 }
 
-.friend-email-button {
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-decoration: none;
+.container {
+  display: flex;
+  gap: var(--spacing-xxl);
+  padding: var(--spacing-xxl);
 }
 
-.friend-email-button:hover {
-  background-color: #45a049;
-}
-
-.rate-friend-button {
-  padding: 8px 16px;
-  background-color: #4CAF50; /* Choose your preferred color */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  text-decoration: none;
-  margin-left: 10px; /* Adjust as needed */
-}
-
-.rate-friend-button:hover {
-  background-color: #45a049; /* Choose your preferred hover color */
-}
-
-/* Form Styles */
-.form-container {
-  background-color: #f9f9f9;
-  padding: 12px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#transaction-type,
-#amount-input,
-#submit {
-  display: block;
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-#submit {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#submit:hover {
-  background-color: #45a049;
-}
-
-/* Transaction History Styles */
-#transactionTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-#transactionTable th,
-#transactionTable td {
-  border: 3px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-#transactionTable th {
-  background-color: #f2f2f2;
-}
-
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-  
-  .header-container {
-    margin-left: 0;
-  }
-
-  .left-section,
-  .right-section {
-    width: 100%;
-  }
-}
-.rating-section {
-  background-color: #f9f9f9;
-  padding: 20px;
-  text-align: center;
-}
-
-.rating-section h2 {
-  margin-bottom: 20px;
-}
-
-.rating-section p {
-  margin-bottom: 10px;
-}
-
-.rating-section input[type="number"] {
-  padding: 10px;
-  width: 100%;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.rating-section button {
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.rating-section button:hover {
-  background-color: #45a049;
+.left-section,
+.right-section {
+  flex: 1;
+  min-width: 0; /* Prevents flex items from overflowing */
 }
 
 .footer {
   display: flex;
   justify-content: center;
-  /* margin: 20px; */
-  gap: 50px;
-  margin-bottom: 20px;
+  gap: var(--spacing-xxl);
+  padding: 0 var(--spacing-xxl) var(--spacing-xxl); /* Adjusted padding */
 }
 
-textarea {
-            resize: none; /* Prevent resizing */ 
-        }
+/* 
+  SECTION 3: COMPONENT STYLES
+  - Styles for individual UI components like forms, tables, and buttons.
+  - All spacing, colors, and borders use the defined design tokens.
+*/
+
+/* Generic Card Style (for forms and rating sections) */
+.card {
+  background: var(--color-background-medium);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-l);
+}
+
+.card h2 {
+  color: var(--color-accent);
+  font-size: 1.5rem; /* 24px */
+  margin-bottom: 0; /* Gap is handled by the flex container */
+  text-align: center;
+}
+
+/* Form Elements (Inputs, Selects, Textareas) */
+.form-input {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-m);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-small);
+  background: var(--color-background-deep);
+  color: var(--color-text-primary);
+  font-size: 0.875rem; /* 14px */
+  transition: var(--transition-fast);
+}
+
+.form-input:hover {
+  border-color: var(--color-accent);
+  background: #0f2235;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+textarea.form-input {
+  resize: none;
+}
+
+/* Button Styles */
+.button {
+  padding: 0.75rem 1.25rem; /* 12px 20px */
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  border: none;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  transition: var(--transition-fast);
+  text-align: center;
+}
+
+.button:hover {
+  background: var(--color-accent-darker);
+  transform: translateY(-1px);
+}
+
+/* Header Specifics */
+.header-container h3 {
+  color: var(--color-accent);
+  font-size: 1.25rem; /* 20px */
+}
+
+/* Transaction History Table */
+.table-container {
+  max-height: 320px; /* Adjusted height to better match form */
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-medium);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+#transactionTable {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-background-medium);
+}
+
+#transactionTable th,
+#transactionTable td {
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-m);
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+#transactionTable th {
+  background: var(--color-background-deep);
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 1rem; /* 16px */
+  position: sticky;
+  top: 0;
+}
+
+#transactionTable tbody tr {
+  transition: var(--transition-fast);
+}
+
+#transactionTable tbody tr:hover {
+  background: rgba(100, 255, 218, 0.1);
+  transform: translateY(-1px);
+}
+
+#transactionTable tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Scrollbar Styling */
+.table-container::-webkit-scrollbar {
+  width: 6px;
+}
+.table-container::-webkit-scrollbar-track {
+  background: var(--color-background-deep);
+  border-radius: 10px;
+}
+.table-container::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 10px;
+}
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-darker);
+}
+
+/* Footer Section Specifics */
+.rating-section {
+  text-align: center;
+  min-width: 300px;
+  flex: 1; /* Allows sections to grow equally */
+  max-width: 450px; /* Prevents sections from becoming too wide */
+}
+
+.rating-section p {
+  color: var(--color-text-primary);
+  margin-bottom: 0; /* Gap is handled by flex container */
+}
+
+.rating-section form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-l);
+}
+
+/* 
+  SECTION 4: RESPONSIVE DESIGN
+  - Adjusts the layout for smaller screens using a single media query.
+  - Stacks flex containers vertically for a mobile-friendly view.
+*/
+@media screen and (max-width: 900px) {
+ .header-container {
+    padding: var(--spacing-l);
+  }
+
+ .container {
+    flex-direction: column;
+    padding: var(--spacing-l);
+    gap: var(--spacing-xl);
+  }
+  
+ .footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--spacing-l) var(--spacing-l);
+    gap: var(--spacing-xl);
+  }
+
+ .rating-section {
+    width: 100%;
+  }
+}
 </style>
 
 </head>
 <body>
 
-<!-- Header containing friend's email button -->
 <div class="header-container">
   <h3 id="friendEmail"></h3>
-  <a href="/htmlFiles/06friendsProfile.html" class="friend-email-button">Friends Profile</a>
-  <!-- <a href="#" class="rate-friend-button">Rate Your Friend</a> -->
+  <a href="/htmlFiles/06friendsProfile.html" class="button">Friends Profile</a>
 </div>
 
 <div class="container">
   <div class="left-section">
-    <div class="form-container">
-      <h2 style="text-align: center;">Transaction Form</h2>
-      <select id="transaction-type">
+    <div class="card">
+      <h2>Transaction Form</h2>
+      <select id="transaction-type" class="form-input">
         <option value="lend">Lend</option>
         <option value="borrow">Borrow</option>
       </select>
-      <input type="number" id="amount-input" placeholder="Enter amount">
-      <button id="submit">Submit</button>
+      <input type="number" id="amount-input" class="form-input" placeholder="Enter amount">
+      <button id="submit" class="button">Submit</button>
     </div>
   </div>
   <div class="right-section">
-    <h2>Transaction History</h2>
-    <table id="transactionTable">
-      <thead>
-        <tr>
-          <th>Amount</th>
-          <th>Type</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody id="parent">
-        <!-- Data will be populated dynamically -->
-      </tbody>
-    </table>
+    <div class="card">
+        <h2>Transaction History</h2>
+        <div class="table-container">
+            <table id="transactionTable">
+                <thead>
+                    <tr>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody id="parent">
+                </tbody>
+            </table>
+        </div>
+    </div>
   </div>
 </div>
 
 <div class="footer">
-  <div class="rating-section">
+  <div class="rating-section card">
     <h2>Rate Your Friend</h2>
     <p>Provide a rating for your friend:</p>
-    <div>
-      <input type="number" id="rating-input" placeholder="Enter rating (1-5)">
-      <button id="rating-button">Submit Rating</button>
-    </div>
+    <input type="number" id="rating-input" class="form-input" placeholder="Enter rating (1-5)">
+    <button id="rating-button" class="button">Submit Rating</button>
   </div>
 
-  <div class="rating-section">
+  <div class="rating-section card">
     <h2>Remind Your Friend</h2>
     <p>Provide a message to remind your Friends</p>
     <form>
-      <textarea name="meassage" id="message" cols="50" rows="3" placeholder="Enter meassage"></textarea>
-      <!-- <input type="text" id="message" placeholder="Enter meassage"> -->
-      <br> 
-      <button id="fsubmit">Send</button>
+      <textarea name="message" id="message" cols="50" rows="3" class="form-input" placeholder="Enter message"></textarea>
+      <button id="fsubmit" class="button">Send</button>
     </form>
   </div>
 </div>
@@ -245,43 +350,43 @@ textarea {
 </body>
 <script
   type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  src="[https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js](https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js)">
 </script>
 <script type="text/javascript">
    (function(){
-      emailjs.init({
-        publicKey: "GUnDNg4CqKFZj_-3w",
-      });
+       emailjs.init({
+         publicKey: "GUnDNg4CqKFZj_-3w",
+       });
    })();
 
-    function sendEmail() { 
-        let curr = localStorage.getItem('current_user');
-        let email = localStorage.getItem('friendEmail');
-        let message = document.getElementById('message').value;
+     function sendEmail() { 
+         let curr = localStorage.getItem('current_user');
+         let email = localStorage.getItem('friendEmail');
+         let message = document.getElementById('message').value;
 
-        // Log the values to check if they are retrieved correctly
-        // console.log("Name:", name);
-        console.log("Email:", email);
-        console.log("Message:", message);
+         // Log the values to check if they are retrieved correctly
+         // console.log("Name:", name);
+         console.log("Email:", email);
+         console.log("Message:", message);
 
-        emailjs.send("service_6qjvp1i","template_r0ezocs", {
-            name: curr,
-            email: email,
-            message: message
-        }).then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            alert("Message is sent!!");
-            location.reload();
-        }, function(error) {
-            console.log('FAILED...', error);
-            alert("Failed to send message. Please try again later.");
-        });
-    }
+         emailjs.send("service_6qjvp1i","template_r0ezocs", {
+             name: curr,
+             email: email,
+             message: message
+         }).then(function(response) {
+             console.log('SUCCESS!', response.status, response.text);
+             alert("Message is sent!!");
+             location.reload();
+         }, function(error) {
+             console.log('FAILED...', error);
+             alert("Failed to send message. Please try again later.");
+         });
+     }
 
-    document.getElementById('fsubmit').addEventListener('click', function(event) {
-        event.preventDefault();
-        sendEmail();
-    });
+     document.getElementById('fsubmit').addEventListener('click', function(event) {
+         event.preventDefault();
+         sendEmail();
+     });
 </script>
 <script type="module" src="/script/04transaction.js"></script>
 </html>

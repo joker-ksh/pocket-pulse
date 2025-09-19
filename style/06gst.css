@@ -1,12 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Lexend+Deca:regular);
 
 :root {
-  --text-color: #000000da;
-  --title-color: #07070793;
-  --background: linear-gradient(to top, /* #12c2e9,*/ #ed71ce, #f64f59);
-  --card-background: #ffffffaa;
-  --card-shadow: 0 0.5rem 0.5rem #fcf8f840;
-  /* --text-shadow: 0 -0.25rem 0.5rem #ffffff50; */
+  --text-color: #ccd6f6;       /* Light text for dark background */
+  --title-color: #64ffda;      /* Teal accent color for titles */
+  --background: linear-gradient(to top, #0a192f, #112240); /* Dark gradient */
+  --card-background: #112240aa; /* Semi-transparent dark cards */
+  --card-shadow: 0 0.5rem 0.5rem #00000080; /* Subtle shadow */
+  --text-shadow: none; /* No text-shadow for clarity */
 }
 
 *,
@@ -20,17 +20,19 @@
   color: var(--text-color);
   outline: none;
 }
+
 html,
 body {
   height: 100%;
   width: 100%;
 }
+
 body {
   display: grid;
   justify-content: center;
   align-items: center;
   grid-template-columns: 1fr;
-  background: url("/Bg.png");
+  background: var(--background);
 }
 
 .wrapper {
@@ -44,7 +46,6 @@ body {
 }
 
 .card {
-  /* background-color: #fff; */
   min-height: 88px;
   border-radius: 0.5rem;
   position: relative;
@@ -65,15 +66,14 @@ body {
   position: absolute;
   bottom: 0.5rem;
   right: 0.5rem;
-  /* background-color: #ffffff20; */
   background-color: transparent;
-  text-shadow: var(--text-shadow);
   border: none;
   font-size: 2.75rem;
   font-weight: 100;
   line-height: 10px;
   text-align: right;
   width: calc(100% - 1rem);
+  color: var(--text-color);
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -87,18 +87,25 @@ input[type="number"]::-webkit-outer-spin-button {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   overflow: hidden;
+  border-radius: 0.5rem;
+  box-shadow: var(--card-shadow);
 }
+
 .gst #left {
   border-radius: 0.5rem 0 0 0.5rem;
 }
+
 .gst #right {
   border-radius: 0 0.5rem 0.5rem 0;
 }
+
 .gst button {
   border: none;
   font-size: 3rem;
   padding-bottom: 0.5rem;
   background: transparent;
+  color: var(--title-color);
+  cursor: pointer;
 }
 
 .gst .group {
@@ -108,12 +115,16 @@ input[type="number"]::-webkit-outer-spin-button {
   align-content: center;
   font-weight: bold;
 }
+
 .gst span:first-child {
   align-self: center;
   font-size: 3.5rem;
+  color: var(--text-color);
 }
+
 .gst span:last-child {
   align-self: center;
+  color: var(--text-color);
 }
 
 .gst:after {

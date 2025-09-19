@@ -1,51 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style/02signIn.css">
-    <title>Login with us</title>
-</head>
-<script type="module" src="SignIn.js"></script>
-<body style="background-image: url(/Bg.png);">
-<nav class="navbar">
-<a href="/index.html"class="netflix-btn txt">Home</a>
-<a href="/Team_About/Team_about.html" class="netflix-btn txt">About</a>
-<a href="#" class="netflix-btn txt">Contact</a>
-    </nav>
-    <div class="box">
-    <div class=" flex-r container">
-        <div class="flex-r login-wrapper">
-            <div class="login-text">
-                <div class="logo1">
-                    <span><i class="fab fa-speakap"></i></span>
-                </div>
-                <h1>Sign In</h1>
-                <p>Welcome to your personalized financial freedom! </p>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pocket Pulse - Sign In</title>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Lexend+Deca:regular);
 
-                <form class="flex-c">
-                    <div class="input-box">
-                        <span class="label">E-mail</span>
-                        <div class=" flex-r input">
-                            <input id="Email" type="text" placeholder="">
-                            <i class="fas fa-at"></i>
-                        </div>
-                    </div>
-                    <div class="input-box">
-                        <span class="label">Password</span>
-                        <div class="flex-r input">
-                            <input id = "pass" type="password" placeholder="">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                    </div>
-                    <button id="submit-btn" class="btn">Login to Account</button>
-                    <p>You want to SignUp?<a style="margin-left: 5px;" href="/htmlFiles/01signUp.html">Sign Up</a></p>
-                </form>
-            </div>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Lexend Deca", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+    }
+
+    body {
+      background: linear-gradient(to right, #0a192f, #112240);
+      color: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- Navbar (Matched with Page 1) --- */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+      background: #0a192f;
+      border-bottom: 1px solid #233554;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #64ffda;
+    }
+
+    .navbar a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #ccd6f6;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #64ffda;
+    }
+
+    /* Main container */
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+    }
+
+    .login-wrapper {
+      background: #112240;
+      padding: 40px;
+      border-radius: 12px;
+      width: 380px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    p {
+      text-align: center;
+      font-size: 15px;
+      color: #a8b2d1;
+      margin-bottom: 25px;
+    }
+
+    .input-box {
+      margin-bottom: 20px;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #ccd6f6;
+    }
+
+    .input input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #233554;
+      outline: none;
+      font-size: 15px;
+      background: #0a192f;
+      color: #eaeaea;
+      transition: border 0.3s ease;
+    }
+
+    .input input:focus {
+      border: 1px solid #64ffda;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #64ffda;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #0a192f;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #52d1b1;
+    }
+
+    .login-wrapper p a {
+      color: #64ffda;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .login-wrapper p a:hover {
+      color: #ffffff;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .container {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="header">
+    <div class="logo">Pocket Pulse</div>
+    <nav class="navbar">
+      <a href="/index.html">Home</a>
+      <a href="/Team_About/Team_about.html">About</a>
+      <a href="https://www.linkedin.com/in/aman-maurya-8941b926b/" target="_blank">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Sign In Form -->
+  <div class="container">
+    <div class="login-wrapper">
+      <h1>Sign In</h1>
+      <p>Welcome to your personalized financial freedom!</p>
+
+      <form>
+        <div class="input-box">
+          <span class="label">E-mail</span>
+          <div class="input">
+            <input id="Email" type="email" placeholder="Enter your email">
+          </div>
         </div>
+
+        <div class="input-box">
+          <span class="label">Password</span>
+          <div class="input">
+            <input id="pass" type="password" placeholder="Enter your password">
+          </div>
+        </div>
+
+        <button id="submit-btn" class="btn">Login to Account</button>
+        <p style="margin-top: 15px;">Don’t have an account? 
+          <a href="/htmlFiles/01signUp.html">Sign Up</a>
+        </p>
+      </form>
     </div>
-</div>
+  </div>
 </body>
 <script type="module" src="/script/02signIn.js"></script>
 </html>
