@@ -138,6 +138,36 @@
       color: #ffffff;
     }
 
+    /* Demo Credentials Box */
+    .demo-credentials {
+      background: #0a192f;
+      border: 1px solid #233554;
+      border-radius: 6px;
+      padding: 12px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .demo-credentials .demo-title {
+      font-size: 13px;
+      color: #64ffda;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .demo-credentials .demo-info {
+      font-size: 13px;
+      color: #a8b2d1;
+      line-height: 1.6;
+      margin: 0;
+      text-align: left;
+    }
+
+    .demo-credentials .demo-info strong {
+      color: #ccd6f6;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .container {
@@ -178,8 +208,17 @@
           </div>
         </div>
 
+        <!-- Demo Credentials Box -->
+        <div class="demo-credentials">
+          <span class="demo-title">🔑 Demo Credentials</span>
+          <p class="demo-info">
+            <strong>Email:</strong> aman@gmail.com<br>
+            <strong>Password:</strong> 1234567890
+          </p>
+        </div>
+
         <button id="submit-btn" class="btn">Login to Account</button>
-        <p style="margin-top: 15px;">Don’t have an account? 
+        <p style="margin-top: 15px;">Don't have an account? 
           <a href="/htmlFiles/01signUp.html">Sign Up</a>
         </p>
       </form>
